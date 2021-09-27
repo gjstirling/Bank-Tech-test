@@ -12,6 +12,7 @@ class Client
 
   def deposit(credit)
     fail "Typing error" unless credit.is_a? Numeric 
+    fail "You cannot deposit nothing" if credit < 0.01
     @balance += credit
   end 
 

@@ -28,8 +28,12 @@ describe Client do
       expect(client.balance).to eq(59.99)
     end 
   
-    it "Checks for correct data type" do 
+    it "Checks for correct input type" do 
       expect { client.deposit("money") }.to raise_error "Typing error"
+    end 
+
+    it "raises error when zero is deposited" do 
+      expect { client.deposit(0.0) }.to raise_error "You cannot deposit nothing"
     end 
   end 
 
