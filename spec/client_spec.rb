@@ -22,11 +22,15 @@ describe Client do
 
   describe "#deposit" do 
 
-    it "Stores money when called" do 
+    it "Stores credit when called" do 
       client.deposit(49.99)
-      expect(client.balance).to eq(49.99)
-
+      client.deposit(10)
+      expect(client.balance).to eq(59.99)
+    end 
+  
+    it "Checks for correct data type" do 
+      expect { client.deposit("money") }.to raise_error "Typing error"
     end 
   end 
-  
+
 end 
