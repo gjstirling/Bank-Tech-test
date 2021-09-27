@@ -10,8 +10,7 @@ describe Client do
   end 
   
   it "Gives error is string entered doesn't appear correct" do 
-    expect { Client.new("J0hn Do3") }.to raise_error "Name cannot contain numbers"
-    expect { Client.new("John Doe!") }.to raise_error "Name cannot contain special characters"
+    expect { Client.new("J0hn Do3!") }.to raise_error "Name cannot contain numbers or special characters"
   end  
   
   
