@@ -36,11 +36,11 @@ class Client
     fail "You cannot withdraw or deposit less than the minimum" if value < minimum
   end
 
-  def print_statement
-    p ("date".ljust(10) + "||" + "credit".ljust(10) + "||" + "debit".ljust(10) + "||" + "balance".ljust(10))
+  # def print_statement
+  #   p ("date".ljust(10) + "||" + "credit".ljust(10) + "||" + "debit".ljust(10) + "||" + "balance".ljust(10))
     
 
-  end 
+  # end 
 
 end 
 

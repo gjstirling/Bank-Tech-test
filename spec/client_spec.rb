@@ -5,6 +5,7 @@ describe Client do
   let (:current_client) {described_class.new("Johnny Cash", 50)}
   let (:example_transactions) {described_class.new("Johnny Cash", 50, [{:date => present_date, :credit => 10,:balance => 10}, {:date => present_date, :debit => 5, :balance => 5}])}
 
+  #### these test for correct format of client name
   it "Raises Error when incorrect data type is used" do 
     expect { Client.new(123) }.to raise_error "Name information entered incorrectly"
   end 
@@ -22,6 +23,7 @@ describe Client do
     new_account = Client.new("John Doe")
     expect(new_account.name).to eq("John Doe")
   end 
+  ###############################################
 
   describe '#verify_input' do
     
@@ -34,7 +36,8 @@ describe Client do
     end 
 
   end 
-  
+  ###############################################
+
   describe "#deposit" do 
 
     it "Stores credit when called" do 
@@ -48,6 +51,7 @@ describe Client do
     end
 
   end 
+  ###############################################
 
   describe "#withdraw" do
     
@@ -65,20 +69,14 @@ describe Client do
       expect(current_client.account_statement).to eq([{:date => present_date, :credit => "", :debit => "5", :balance => "45"}])
     end 
   end
-
+  ###############################################
+  
   describe "#time_stamp" do
 
+    it "tests time_stamp method" do 
+      expect(client.time_stamp).to eq(present_date)
+    end
+
   end 
-
-  # describe "print_statement" do 
-
-  #   it "Creates header for table" do 
-  #     header = "date".ljust(10) + "||" + "credit".ljust(10) + "||" + "debit".ljust(10) + "||" + "balance".ljust(10)
-  #     transaction1 = present_date.ljust(10) + "||" "10".ljust(10) + "||" "".ljust(10) + "||" + "10".ljust(10) 
-  #     transaction2 =  present_date.ljust(10) + "||" "".ljust(10) + "||" "5".ljust(10) + "||" + "5".ljust(10) 
-  #     expect(example_transactions.print_statement).to eq(header + "\n" + transaction2 + "\n" + transaction1)
-  #   end 
-
-  # end 
 
 end 
