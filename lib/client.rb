@@ -40,6 +40,7 @@ class Client
   def print_statement
     p ("date".ljust(10) + "||" + "credit".ljust(10) + "||" + "debit".ljust(10) + "||" + "balance".ljust(10))
     
+
   end 
 
 end 

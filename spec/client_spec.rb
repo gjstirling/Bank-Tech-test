@@ -69,10 +69,11 @@ describe Client do
 
     it "Creates header for table" do 
       header = "date".ljust(10) + "||" + "credit".ljust(10) + "||" + "debit".ljust(10) + "||" + "balance".ljust(10)
-      expect(example_transactions.print_statement).to eq(header)
+      transaction1 = present_date.ljust(10) + "||" "10".ljust(10) + "||" "".ljust(10) + "||" + "10".ljust(10) 
+      transaction2 =  present_date.ljust(10) + "||" "".ljust(10) + "||" "5".ljust(10) + "||" + "5".ljust(10) 
+      expect(example_transactions.print_statement).to eq(header + "\n" + transaction2 + "\n" + transaction1)
     end 
 
   end 
 
 end 
-
