@@ -8,9 +8,8 @@ class Bank
     @clients = Array.new
   end 
   
-  
-  def new_client(name)
-    @clients.push(Client.new(name))
+  def new_client(client)
+    @clients.push(client)
   end
 
 end
