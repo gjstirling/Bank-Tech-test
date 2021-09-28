@@ -1,6 +1,6 @@
 class Client
 
-  attr_reader :name, :balance
+  attr_reader :name, :balance, :mininmum
 
   def initialize(name)
     fail "Name information entered incorrectly" if !name.is_a?(String)
@@ -8,13 +8,18 @@ class Client
     fail "Name cannot contain numbers or special characters" if name.gsub(/[^a-zA-Z \.']/,'').length < name.length
     @name = name
     @balance = 0
+    @mininmum = 0.01
   end 
 
   def deposit(credit)
-    fail "Typing error" unless credit.is_a? Numeric 
-    fail "You cannot deposit nothing" if credit < 0.01
+    verify_input(credit)
     @balance += credit
   end 
+
+  def verify_input(value)
+    fail "Typing error" unless value.is_a? Numeric 
+    fail "You cannot withdraw or deposit less than the minimum" if value < mininmum
+  end
 
 end 
 

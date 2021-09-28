@@ -3,9 +3,6 @@ describe Bank do
   let (:bank) {described_class.new}
   let (:client_class) { double :client_class }
   let (:client_instance) { double :client_instance, name: "John Doe" }
-  let (:client_instance2) { double :client_instance2, name: "Johnny Cash" }
-
-
 
   it "stores a client inside clients array" do 
     allow(client_class).to receive(:new).and_return(client_instance)
@@ -16,9 +13,9 @@ describe Bank do
   it "stores multiple clients" do 
     allow(client_class).to receive(:new).and_return(client_instance)
     bank.new_client("John Doe", client_class)
-    allow(client_class).to receive(:new).and_return(client_instance2)
+    allow(client_class).to receive(:new).and_return(client_instance)
     bank.new_client("Johnny Cash", client_class)
-    expect(bank.clients).to eq([client_instance, client_instance2])
+    expect(bank.clients).to eq([client_instance, client_instance])
   end 
 
 end 

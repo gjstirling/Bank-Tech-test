@@ -20,6 +20,18 @@ describe Client do
     expect(new_account.name).to eq("John Doe")
   end 
 
+  describe '#verify_input' do
+    
+    it "Checks for correct input type" do 
+      expect { client.verify_input("money") }.to raise_error "Typing error"
+    end 
+
+    it "raises error when zero is deposited" do 
+      expect { client.verify_input(0.001) }.to raise_error "You cannot withdraw or deposit less than the minimum"
+    end 
+
+  end 
+  
   describe "#deposit" do 
 
     it "Stores credit when called" do 
@@ -28,13 +40,15 @@ describe Client do
       expect(client.balance).to eq(59.99)
     end 
   
-    it "Checks for correct input type" do 
-      expect { client.deposit("money") }.to raise_error "Typing error"
-    end 
-
-    it "raises error when zero is deposited" do 
-      expect { client.deposit(0.0) }.to raise_error "You cannot deposit nothing"
-    end 
   end 
+
+  describe "#withdraw" do
+    
+
+
+
+
+    
+  end
 
 end 
