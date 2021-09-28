@@ -49,9 +49,9 @@ describe Client do
       expect(current_client.balance).to eq(40)
     end 
 
-
-
-
+    it "raises error when withdraw request exceeds balance" do
+      expect { current_client.withdraw(60) }.to raise_error "You do not have required funds"
+    end
     
   end
 
