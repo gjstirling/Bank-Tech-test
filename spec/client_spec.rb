@@ -42,7 +42,8 @@ describe Client do
 
     it "saves information inside account statement" do 
       client.deposit(10)
-      expect(client.account_statement).to eq([{:deposit => 10}])
+      present_date = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
+      expect(client.account_statement).to eq([{:deposit => 10, :date => present_date}])
     end 
   
   end 
