@@ -1,6 +1,6 @@
 class Client
 
-  attr_reader :name, :balance, :mininmum
+  attr_reader :name, :balance, :mininmum, :account_statement
 
   def initialize(name, balance = 0)
     fail "Name information entered incorrectly" if !name.is_a?(String)
@@ -9,6 +9,7 @@ class Client
     @name = name
     @balance = balance
     @mininmum = 0.01
+    @account_statement = []
   end 
 
   def deposit(credit)

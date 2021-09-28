@@ -39,6 +39,11 @@ describe Client do
       client.deposit(10)
       expect(client.balance).to eq(10)
     end 
+
+    it "saves information inside account statement" do 
+      client.deposit(10)
+      expect(client.account_statement).to eq([{:deposit => 10}])
+    end 
   
   end 
 
@@ -52,7 +57,7 @@ describe Client do
     it "raises error when withdraw request exceeds balance" do
       expect { current_client.withdraw(60) }.to raise_error "You do not have required funds"
     end
-    
+
   end
 
 end 
