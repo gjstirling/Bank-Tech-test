@@ -12,3 +12,9 @@ As a client,
 So that I can create savings, 
 I'd like to deposit money into my new account 
 
+As a client 
+So that I can withdraw funds 
+I'd like to withdraw credit
+
+
+
