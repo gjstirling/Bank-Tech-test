@@ -40,7 +40,13 @@ describe Client do
     it "Stores credit when called" do 
       client.deposit(10)
       expect(client.balance).to eq(10)
-    end 
+    end
+    
+    it "saves information inside account statement when cash it deposited" do 
+      client.deposit(20.0)
+      expect(client.account_statement).to eq([{:date => present_date, :credit => "20.0", :debit => "", :balance => "20.0"}])
+    end
+
   end 
 
   describe "#withdraw" do
@@ -53,27 +59,26 @@ describe Client do
     it "raises error when withdraw request exceeds balance" do
       expect { current_client.withdraw(60) }.to raise_error "You do not have required funds"
     end
+
+    it "saves information inside account statement when cash it withdrawn" do 
+      current_client.withdraw(5)
+      expect(current_client.account_statement).to eq([{:date => present_date, :credit => "", :debit => "5", :balance => "45"}])
+    end 
   end
 
-  describe '#save_transaction' do 
-
-    it "saves information inside account statement" do 
-      client.deposit(10)
-      client.withdraw(5)
-      expect(client.account_statement).to eq([{:date => present_date, :credit => 10, :balance => 10}, {:date => present_date, :debit => 5, :balance => 5}])
-    end 
+  describe "#time_stamp" do
 
   end 
 
-  describe "print_statement" do 
+  # describe "print_statement" do 
 
-    it "Creates header for table" do 
-      header = "date".ljust(10) + "||" + "credit".ljust(10) + "||" + "debit".ljust(10) + "||" + "balance".ljust(10)
-      transaction1 = present_date.ljust(10) + "||" "10".ljust(10) + "||" "".ljust(10) + "||" + "10".ljust(10) 
-      transaction2 =  present_date.ljust(10) + "||" "".ljust(10) + "||" "5".ljust(10) + "||" + "5".ljust(10) 
-      expect(example_transactions.print_statement).to eq(header + "\n" + transaction2 + "\n" + transaction1)
-    end 
+  #   it "Creates header for table" do 
+  #     header = "date".ljust(10) + "||" + "credit".ljust(10) + "||" + "debit".ljust(10) + "||" + "balance".ljust(10)
+  #     transaction1 = present_date.ljust(10) + "||" "10".ljust(10) + "||" "".ljust(10) + "||" + "10".ljust(10) 
+  #     transaction2 =  present_date.ljust(10) + "||" "".ljust(10) + "||" "5".ljust(10) + "||" + "5".ljust(10) 
+  #     expect(example_transactions.print_statement).to eq(header + "\n" + transaction2 + "\n" + transaction1)
+  #   end 
 
-  end 
+  # end 
 
 end 
