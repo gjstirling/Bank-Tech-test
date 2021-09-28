@@ -18,6 +18,7 @@ class Client
 
   def withdraw(credit)
     verify_input(credit)
+    fail "You do not have required funds" if credit > balance
     @balance -= credit
   end 
 
