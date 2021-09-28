@@ -2,18 +2,23 @@ class Client
 
   attr_reader :name, :balance, :mininmum
 
-  def initialize(name)
+  def initialize(name, balance = 0)
     fail "Name information entered incorrectly" if !name.is_a?(String)
     fail "Name required to create account" if name.strip == ""
     fail "Name cannot contain numbers or special characters" if name.gsub(/[^a-zA-Z \.']/,'').length < name.length
     @name = name
-    @balance = 0
+    @balance = balance
     @mininmum = 0.01
   end 
 
   def deposit(credit)
     verify_input(credit)
     @balance += credit
+  end 
+
+  def withdraw(credit)
+    verify_input(credit)
+    @balance -= credit
   end 
 
   def verify_input(value)

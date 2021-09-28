@@ -1,6 +1,7 @@
 describe Client do 
 
   let (:client) {described_class.new("Johnny Cash")}
+  let (:current_client) {described_class.new("Johnny Cash", 50)}
 
   it "Raises Error when incorrect data type is used" do 
     expect { Client.new(123) }.to raise_error "Name information entered incorrectly"
@@ -35,15 +36,18 @@ describe Client do
   describe "#deposit" do 
 
     it "Stores credit when called" do 
-      client.deposit(49.99)
       client.deposit(10)
-      expect(client.balance).to eq(59.99)
+      expect(client.balance).to eq(10)
     end 
   
   end 
 
   describe "#withdraw" do
     
+    it "Subtracts from balance when called" do 
+      current_client.withdraw(10)
+      expect(current_client.balance).to eq(40)
+    end 
 
 
 
