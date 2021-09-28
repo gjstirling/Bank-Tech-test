@@ -56,10 +56,10 @@ describe Client do
   describe '#save_transaction' do 
 
     it "saves information inside account statement" do 
-      client.save_transaction(10, "deposit")
-      client.save_transaction(5, "withdraw")
+      client.deposit(10)
+      client.withdraw(5)
       present_date = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
-      expect(client.account_statement).to eq([{"deposit" => 10, :date => present_date}, {"withdraw" => 5, :date => present_date}])
+      expect(client.account_statement).to eq([{:date => present_date, :credit => 10, :balance => 10}, {:date => present_date, :debit => 5, :balance => 5}])
     end 
 
   end 

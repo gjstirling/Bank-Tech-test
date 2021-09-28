@@ -15,22 +15,19 @@ class Client
   def deposit(credit)
     verify_input(credit)
     @balance += credit
-    save_transaction(credit, :deposit)
-    # timestamp = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
-    # account_statement.push({:deposit => credit, :date => timestamp})
+    save_transaction(credit, :credit)
   end 
 
   def withdraw(credit)
     verify_input(credit)
     fail "You do not have required funds" if credit > balance
     @balance -= credit
-    timestamp = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
-    account_statement.push({:withdraw => credit, :date => timestamp})
+    save_transaction(credit, :debit)
   end 
 
   def save_transaction(credit, type)
     timestamp = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
-    account_statement.push({ type => credit, :date => timestamp})
+    account_statement.push({:date => timestamp, type => credit, :balance => @balance})
   end 
   
   
