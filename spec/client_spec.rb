@@ -39,13 +39,6 @@ describe Client do
       client.deposit(10)
       expect(client.balance).to eq(10)
     end 
-
-    it "saves information inside account statement" do 
-      client.deposit(10)
-      present_date = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
-      expect(client.account_statement).to eq([{:deposit => 10, :date => present_date}])
-    end 
-  
   end 
 
   describe "#withdraw" do
@@ -58,7 +51,17 @@ describe Client do
     it "raises error when withdraw request exceeds balance" do
       expect { current_client.withdraw(60) }.to raise_error "You do not have required funds"
     end
-
   end
+
+  describe '#save_transaction' do 
+
+    it "saves information inside account statement" do 
+      client.save_transaction(10, "deposit")
+      client.save_transaction(5, "withdraw")
+      present_date = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
+      expect(client.account_statement).to eq([{"deposit" => 10, :date => present_date}, {"withdraw" => 5, :date => present_date}])
+    end 
+
+  end 
 
 end 

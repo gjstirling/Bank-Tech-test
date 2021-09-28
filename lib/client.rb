@@ -15,17 +15,25 @@ class Client
   def deposit(credit)
     verify_input(credit)
     @balance += credit
-    timestamp = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
-    account_statement.push({:deposit => credit, :date => timestamp})
+    save_transaction(credit, :deposit)
+    # timestamp = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
+    # account_statement.push({:deposit => credit, :date => timestamp})
   end 
 
   def withdraw(credit)
     verify_input(credit)
     fail "You do not have required funds" if credit > balance
     @balance -= credit
-    account_statement.push({:withdraw => credit})
+    timestamp = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
+    account_statement.push({:withdraw => credit, :date => timestamp})
   end 
 
+  def save_transaction(credit, type)
+    timestamp = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
+    account_statement.push({ type => credit, :date => timestamp})
+  end 
+  
+  
   def verify_input(value)
     fail "Typing error" unless value.is_a? Numeric 
     fail "You cannot withdraw or deposit less than the minimum" if value < mininmum
