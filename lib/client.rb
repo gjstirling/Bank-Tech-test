@@ -15,6 +15,7 @@ class Client
   def deposit(credit)
     verify_input(credit)
     @balance += credit
+    account_statement.push({:deposit => credit})
   end 
 
   def withdraw(credit)
