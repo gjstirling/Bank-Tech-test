@@ -1,7 +1,9 @@
 describe Client do 
 
+  let (:present_date) {"#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"}
   let (:client) {described_class.new("Johnny Cash")}
   let (:current_client) {described_class.new("Johnny Cash", 50)}
+  let (:example_transactions) {described_class.new("Johnny Cash", 50, [{:date => present_date, :credit => 10,:balance => 10}, {:date => present_date, :debit => 5, :balance => 5}])}
 
   it "Raises Error when incorrect data type is used" do 
     expect { Client.new(123) }.to raise_error "Name information entered incorrectly"
@@ -58,10 +60,19 @@ describe Client do
     it "saves information inside account statement" do 
       client.deposit(10)
       client.withdraw(5)
-      present_date = "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"
       expect(client.account_statement).to eq([{:date => present_date, :credit => 10, :balance => 10}, {:date => present_date, :debit => 5, :balance => 5}])
     end 
 
   end 
 
+  describe "print_statement" do 
+
+    it "Creates header for table" do 
+      header = "date".ljust(10) + "||" + "credit".ljust(10) + "||" + "debit".ljust(10) + "||" + "balance".ljust(10)
+      expect(example_transactions.print_statement).to eq(header)
+    end 
+
+  end 
+
 end 
+
