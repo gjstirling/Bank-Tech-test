@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'client'
+require_relative 'client'
 # Bank class collects and stores clients
 class Bank
   attr_reader :clients

@@ -20,7 +20,7 @@ class Client
     @balance += credit
     account_statement.push({ date: time_stamp, credit: convert(credit), debit: '-',
                              balance: convert(@balance) })
-    "#{credit} deposited"
+    "#{convert(credit)} deposited"
   end
 
   def withdraw(credit)
@@ -30,7 +30,7 @@ class Client
     @balance -= credit
     account_statement.push({ date: time_stamp, credit: '-', debit: convert(credit),
                              balance: convert(@balance) })
-    "#{credit} withdrawn"
+    "#{convert(credit)} withdrawn"
   end
 
   def time_stamp
