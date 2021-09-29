@@ -3,7 +3,7 @@ describe Client do
   let (:present_date) {"#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"}
   let (:client) {described_class.new("Johnny Cash")}
   let (:current_client) {described_class.new("Johnny Cash", 50.0)}
-  let (:example_transactions) {described_class.new("Johnny Cash", 50.0, [{:date => present_date, :credit => 10.0,:balance => 10.0}, {:date => present_date, :debit => 5.0, :balance => 5.0}])}
+  let (:example_transactions) {described_class.new("Johnny Cash", 50.0, [{:date => "28/9/2021", :credit => 10.0,:balance => 10.0}, {:date => "29/9/2021", :debit => 5.0, :balance => 5.0}])}
 
   #### Instance Edge cases
   it "Raises Error when incorrect data type is used" do 
@@ -85,7 +85,7 @@ describe Client do
     table = <<~PUBLISHED
       "   date   ||  credit  ||  debit   || balance  "
       "29/9/2021 ||          ||   5.0    ||   5.0    "
-      "29/9/2021 ||   10.0   ||          ||   10.0   "
+      "28/9/2021 ||   10.0   ||          ||   10.0   "
     PUBLISHED
     
     it "prints transaction history" do
@@ -93,7 +93,4 @@ describe Client do
     end 
   
   end 
-
-
-
 end 
