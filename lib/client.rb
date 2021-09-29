@@ -13,17 +13,18 @@ class Client
   end 
 
   def deposit(credit)
-    verify_input(credit)
-    @balance += credit.to_f
-    account_statement.push({:date => time_stamp, :credit => credit.to_s, :debit => "-", :balance => @balance.to_s})
+    credit = verify_input(credit)
+    @balance += credit
+    account_statement.push({:date => time_stamp, :credit => convert(credit), :debit => "-", :balance => convert(@balance)})
     "#{credit} deposited"
   end 
 
   def withdraw(credit)
-    verify_input(credit)
+    credit = verify_input(credit)
     fail "You do not have required funds" if credit > balance
-    @balance -= credit.to_f
-    account_statement.push({:date => time_stamp, :credit => "-", :debit => credit.to_f.to_s, :balance => @balance.to_s})
+    @balance -= credit
+    account_statement.push({:date => time_stamp, :credit => "-", :debit => convert(credit), 
+      :balance => convert(@balance)})
     "#{credit} withdrawn"
   end 
 
@@ -35,6 +36,7 @@ class Client
     fail "Typing error" unless value.is_a? Numeric 
     fail "You cannot withdraw or deposit less than the minimum" if value < minimum
     fail "Credit must be within two decimal places" if value.to_s.split('.').last.size > 2
+    value.to_f
   end
 
   def print_statement
@@ -42,6 +44,11 @@ class Client
     account_statement.reverse.each do |n|
       p ("#{n[:date]}".center(10) + "||" + "#{n[:credit]}".center(10) + "||" + "#{n[:debit]}".center(10) + "||" + "#{n[:balance]}".center(10))  
     end 
+  end 
+
+  def convert(number)
+    return number.to_s if number.to_s.split('.').last.size == 2
+    return (number.to_s + "0") if number.to_s.split('.').last.size == 1
   end 
 
 end 

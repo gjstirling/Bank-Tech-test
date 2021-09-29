@@ -48,7 +48,7 @@ describe Client do
     
     it "saves information inside account statement when cash it deposited" do 
       client.deposit(20.0)
-      expect(client.account_statement).to eq([{:date => present_date, :credit => "20.0", :debit => "-", :balance => "20.0"}])
+      expect(client.account_statement).to eq([{:date => present_date, :credit => "20.00", :debit => "-", :balance => "20.00"}])
     end
 
   end 
@@ -67,7 +67,7 @@ describe Client do
 
     it "saves information inside account statement when cash it withdrawn" do 
       current_client.withdraw(5)
-      expect(current_client.account_statement).to eq([{:date => present_date, :credit => "-", :debit => "5.0", :balance => "45.0"}])
+      expect(current_client.account_statement).to eq([{:date => present_date, :credit => "-", :debit => "5.00", :balance => "45.00"}])
     end 
   end
   ###############################################
@@ -93,5 +93,12 @@ describe Client do
       expect { example_transactions.print_statement }.to output(table).to_stdout
     end 
   
+  end 
+  ###############################################
+
+  describe "#convert" do 
+    it "converts numbers into correct format for printing to console" do 
+      expect(client.convert(10.9)).to eq("10.90")
+    end 
   end 
 end 
