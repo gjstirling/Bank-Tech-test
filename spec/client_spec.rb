@@ -31,8 +31,9 @@ describe Client do
       expect { client.verify_input("money") }.to raise_error "Typing error"
     end 
 
-    it "raises error when zero is deposited" do 
+    it "raises error when less than minimum is deposited or incorrect float is entered" do 
       expect { client.verify_input(0.009) }.to raise_error "You cannot withdraw or deposit less than the minimum"
+      expect { client.verify_input(10.5669) }.to raise_error "Credit must be within two decimal places"
     end 
 
   end 

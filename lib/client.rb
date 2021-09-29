@@ -34,6 +34,7 @@ class Client
   def verify_input(value)
     fail "Typing error" unless value.is_a? Numeric 
     fail "You cannot withdraw or deposit less than the minimum" if value < minimum
+    fail "Credit must be within two decimal places" if value.to_s.split('.').last.size > 2
   end
 
   def print_statement
