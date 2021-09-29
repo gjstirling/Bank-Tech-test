@@ -2,10 +2,10 @@ describe Client do
 
   let (:present_date) {"#{Time.now.day}/#{Time.now.month}/#{Time.now.year}"}
   let (:client) {described_class.new("Johnny Cash")}
-  let (:current_client) {described_class.new("Johnny Cash", 50)}
-  let (:example_transactions) {described_class.new("Johnny Cash", 50, [{:date => present_date, :credit => 10,:balance => 10}, {:date => present_date, :debit => 5, :balance => 5}])}
+  let (:current_client) {described_class.new("Johnny Cash", 50.0)}
+  let (:example_transactions) {described_class.new("Johnny Cash", 50.0, [{:date => present_date, :credit => 10.0,:balance => 10.0}, {:date => present_date, :debit => 5.0, :balance => 5.0}])}
 
-  #### these test for correct format of client name
+  #### Instance Edge cases
   it "Raises Error when incorrect data type is used" do 
     expect { Client.new(123) }.to raise_error "Name information entered incorrectly"
   end 
@@ -32,7 +32,7 @@ describe Client do
     end 
 
     it "raises error when zero is deposited" do 
-      expect { client.verify_input(0.001) }.to raise_error "You cannot withdraw or deposit less than the minimum"
+      expect { client.verify_input(0.009) }.to raise_error "You cannot withdraw or deposit less than the minimum"
     end 
 
   end 
@@ -47,7 +47,7 @@ describe Client do
     
     it "saves information inside account statement when cash it deposited" do 
       client.deposit(20.0)
-      expect(client.account_statement).to eq([{:date => present_date, :credit => "20.0", :debit => "", :balance => "20.0"}])
+      expect(client.account_statement).to eq([{:date => present_date, :credit => "20.0", :debit => "-", :balance => "20.0"}])
     end
 
   end 
@@ -66,7 +66,7 @@ describe Client do
 
     it "saves information inside account statement when cash it withdrawn" do 
       current_client.withdraw(5)
-      expect(current_client.account_statement).to eq([{:date => present_date, :credit => "", :debit => "5", :balance => "45"}])
+      expect(current_client.account_statement).to eq([{:date => present_date, :credit => "-", :debit => "5.0", :balance => "45.0"}])
     end 
   end
   ###############################################
@@ -77,6 +77,23 @@ describe Client do
       expect(client.time_stamp).to eq(present_date)
     end
 
+  end
+  ###############################################
+  
+  describe "#print_statement" do 
+
+    table = <<~PUBLISHED
+      "   date   ||  credit  ||  debit   || balance  "
+      "29/9/2021 ||          ||   5.0    ||   5.0    "
+      "29/9/2021 ||   10.0   ||          ||   10.0   "
+    PUBLISHED
+    
+    it "prints transaction history" do
+      expect { example_transactions.print_statement }.to output(table).to_stdout
+    end 
+  
   end 
+
+
 
 end 

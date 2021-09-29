@@ -14,16 +14,16 @@ class Client
 
   def deposit(credit)
     verify_input(credit)
-    @balance += credit
-    account_statement.push({:date => time_stamp, :credit => credit.to_s, :debit => "", :balance => @balance.to_s})
+    @balance += credit.to_f
+    account_statement.push({:date => time_stamp, :credit => credit.to_s, :debit => "-", :balance => @balance.to_s})
     "#{credit} deposited"
   end 
 
   def withdraw(credit)
     verify_input(credit)
     fail "You do not have required funds" if credit > balance
-    @balance -= credit
-    account_statement.push({:date => time_stamp, :credit => "", :debit => credit.to_s, :balance => @balance.to_s})
+    @balance -= credit.to_f
+    account_statement.push({:date => time_stamp, :credit => "-", :debit => credit.to_f.to_s, :balance => @balance.to_s})
     "#{credit} withdrawn"
   end 
 
@@ -36,11 +36,11 @@ class Client
     fail "You cannot withdraw or deposit less than the minimum" if value < minimum
   end
 
-  # def print_statement
-  #   p ("date".ljust(10) + "||" + "credit".ljust(10) + "||" + "debit".ljust(10) + "||" + "balance".ljust(10))
-    
-
-  # end 
+  def print_statement
+    p ("date".center(10) + "||" + "credit".center(10) + "||" + "debit".center(10) + "||" + "balance".center(10)) 
+    account_statement.reverse.each do |n|
+      p ("#{n[:date]}".center(10) + "||" + "#{n[:credit]}".center(10) + "||" + "#{n[:debit]}".center(10) + "||" + "#{n[:balance]}".center(10))  
+    end 
+  end 
 
 end 
-
