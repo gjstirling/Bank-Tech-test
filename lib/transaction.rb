@@ -1,8 +1,9 @@
 class Transaction
 
-  attr_reader :minimum, :details
+  attr_reader :minimum, :details, :present_balance
 
-  def initialize(minimum = 0.01)
+  def initialize(present_balance, minimum = 0.01)
+    @present_balance = present_balance
     @minimum = minimum
     @details = Hash.new
   end
@@ -26,6 +27,7 @@ class Transaction
 
   def withdraw(credit)
     credit = verify_input(credit)
+    raise 'Insufficient funds to complete withdrawel' if credit > @present_balance
     @details.merge!(:date => time_stamp, :credit => "-", debit: credit) 
   end
 

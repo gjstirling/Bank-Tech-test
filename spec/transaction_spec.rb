@@ -1,6 +1,6 @@
 describe Transaction do
 
-  let(:transaction) { described_class.new }
+  let(:transaction) { described_class.new(10) }
   let(:present_date) { "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}" }
   
   ###############################################
@@ -31,6 +31,10 @@ describe Transaction do
       transaction.withdraw(10)
       expect(transaction.details).to eq({:date => present_date, :credit => "-", debit: 10})
     end
+
+    it "raises error when balance is too low to withdraw" do 
+      expect { transaction.withdraw(11) }.to raise_error 'Insufficient funds to complete withdrawel'
+    end 
   end
 
   ###############################################
