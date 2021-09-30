@@ -2,15 +2,25 @@
 
 # Client class
 class Client
-  attr_reader 
+  attr_reader :transaction_history
 
-  def initialize
-  
+  def initialize(transaction_history= [])
+    @transaction_history = transaction_history
   end
+
+  def balance
+    total = 0
+    transaction_history.each do |transaction|
+      total += transaction[:credit]
+      total -= transaction[:debit]
+    end 
+  total
+  end 
+
 
   def print_statement
     p("#{'date'.center(10)}||#{'credit'.center(10)}||#{'debit'.center(10)}||#{'balance'.center(10)}")
-    account_statement.reverse.each do |n|
+    @transaction_history.reverse.each do |n|
       p("#{(n[:date]).to_s.center(10)}||#{(n[:credit])
       .center(10)}||#{(n[:debit])
       .center(10)}||#{(n[:balance]).to_s
