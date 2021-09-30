@@ -1,6 +1,7 @@
 describe Transaction do
 
   let(:transaction) { described_class.new }
+  let(:present_date) { "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}" }
   
   ###############################################
 
@@ -16,42 +17,28 @@ describe Transaction do
   end
   ###############################################
 
-  # describe '#deposit' do
-  #   it 'Stores credit when called' do
-  #     client.deposit(10)
-  #     expect(client.balance).to eq(10)
-  #   end
+  describe '#deposit' do
+    it 'Stores credit inside details when called' do
+      transaction.deposit(10)
+      expect(transaction.details).to eq({:date => present_date, :credit => 10, debit: '-'})
+    end
+  end
 
-  #   it 'saves information inside account statement when cash it deposited' do
-  #     client.deposit(20.0)
-  #     expect(client.account_statement).to eq([{ date: present_date, credit: '20.00', debit: '-',
-  #                                               balance: '20.00' }])
-  #   end
-  # end
-  # ###############################################
+  ################################################
 
-  # describe '#withdraw' do
-  #   it 'Subtracts from balance when called' do
-  #     current_client.withdraw(10)
-  #     expect(current_client.balance).to eq(40)
-  #   end
+  describe '#withdraw' do
+    it 'Stores debit inside details when called' do
+      transaction.withdraw(10)
+      expect(transaction.details).to eq({:date => present_date, :credit => "-", debit: 10})
+    end
+  end
 
-  #   it 'raises error when withdraw request exceeds balance' do
-  #     expect { current_client.withdraw(60) }.to raise_error 'You do not have required funds'
-  #   end
+  ###############################################
 
-  #   it 'saves information inside account statement when cash it withdrawn' do
-  #     current_client.withdraw(5)
-  #     expect(current_client.account_statement).to eq([{ date: present_date, credit: '-', debit: '5.00',
-  #                                                       balance: '45.00' }])
-  #   end
-  # end
-  # ###############################################
-
-  # describe '#time_stamp' do
-  #   it 'tests time_stamp method' do
-  #     expect(client.time_stamp).to eq(present_date)
-  #   end
-  # end
+  describe '#time_stamp' do
+    it 'tests time_stamp method' do
+      expect(transaction.time_stamp).to eq(present_date)
+    end
+  end
 
 end
