@@ -2,12 +2,10 @@
 
 # Client class
 class Client
-  attr_reader :balance, :minimum, :account_statement
+  attr_reader 
 
-  def initialize(name, balance = 0, account_statement = [], minimum = 0.01)
-    @balance = balance
-    @account_statement = account_statement
-    @minimum = minimum
+  def initialize
+  
   end
 
   def deposit(credit)
