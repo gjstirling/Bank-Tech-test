@@ -13,7 +13,7 @@ class Transaction
     raise 'You cannot withdraw or deposit less than the minimum' if value < minimum
     raise 'Credit must be within two decimal places' if value.to_s.split('.').last.size > 2
 
-    value.to_f
+    value
   end
 
   def time_stamp
@@ -22,13 +22,15 @@ class Transaction
 
   def deposit(credit)
     credit = verify_input(credit)
-    @details.merge!(:date => time_stamp, :credit => credit, debit: '-')
+    @present_balance += credit
+    @details.merge!(:date => time_stamp, :credit => credit, :debit => 0, :balance => @present_balance)
   end
 
   def withdraw(credit)
     credit = verify_input(credit)
-    raise 'Insufficient funds to complete withdrawel' if credit > @present_balance
-    @details.merge!(:date => time_stamp, :credit => "-", debit: credit) 
+    raise 'Insufficient funds to complete transaction' if credit > @present_balance
+    @present_balance -= credit
+    @details.merge!(:date => time_stamp, :credit => 0, :debit => credit, :balance => @present_balance) 
   end
 
 end 

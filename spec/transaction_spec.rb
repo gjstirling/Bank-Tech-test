@@ -20,7 +20,7 @@ describe Transaction do
   describe '#deposit' do
     it 'Stores credit inside details when called' do
       transaction.deposit(10)
-      expect(transaction.details).to eq({:date => present_date, :credit => 10, debit: '-'})
+      expect(transaction.details).to eq({:date => present_date, :credit => 10, :debit => 0, :balance => 20})
     end
   end
 
@@ -29,11 +29,11 @@ describe Transaction do
   describe '#withdraw' do
     it 'Stores debit inside details when called' do
       transaction.withdraw(10)
-      expect(transaction.details).to eq({:date => present_date, :credit => "-", debit: 10})
+      expect(transaction.details).to eq({:date => present_date, :credit => 0, :debit => 10, :balance => 0})
     end
 
     it "raises error when balance is too low to withdraw" do 
-      expect { transaction.withdraw(11) }.to raise_error 'Insufficient funds to complete withdrawel'
+      expect { transaction.withdraw(11) }.to raise_error 'Insufficient funds to complete transaction'
     end 
   end
 
