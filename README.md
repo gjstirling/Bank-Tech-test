@@ -13,13 +13,7 @@ enter 'rspec' into terminal to confirm tests are funcitoning as expected
 
 open a REPL by entering 'irb' into the terminal 
 
-type 'require './lib/bank.rb''
-
-create a new bank 'bank = Bank.new'
-
-create a client account 'client = Client.new("Test Client")'
-
-store client inside bank 'bank.new_client(client)'
+create a client account 'client = Client.new'
 
 Deposit credit 'client.deposit(1000.00)'
 
@@ -31,14 +25,6 @@ display bank statement 'client.print_statement'
 
 
 # Bank tech test User Stories 
-
-As a client,
-So that the bank knows who I am,
-I want to associate my name with my account 
-
-As a bank, 
-So I can have many clients and banks, 
-I'd like to store many clients in one bank
 
 As a client, 
 So that I can create savings, 

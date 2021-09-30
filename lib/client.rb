@@ -2,14 +2,9 @@
 
 # Client class
 class Client
-  attr_reader :name, :balance, :minimum, :account_statement
+  attr_reader :balance, :minimum, :account_statement
 
   def initialize(name, balance = 0, account_statement = [], minimum = 0.01)
-    raise 'Name information entered incorrectly' unless name.is_a?(String)
-    raise 'Name required to create account' if name.strip == ''
-    raise 'Name cannot contain numbers or special characters' if name.gsub(/[^a-zA-Z .']/, '').length < name.length
-
-    @name = name
     @balance = balance
     @account_statement = account_statement
     @minimum = minimum
@@ -20,7 +15,6 @@ class Client
     @balance += credit
     account_statement.push({ date: time_stamp, credit: convert(credit), debit: '-',
                              balance: convert(@balance) })
-    "#{convert(credit)} deposited"
   end
 
   def withdraw(credit)
@@ -30,7 +24,6 @@ class Client
     @balance -= credit
     account_statement.push({ date: time_stamp, credit: '-', debit: convert(credit),
                              balance: convert(@balance) })
-    "#{convert(credit)} withdrawn"
   end
 
   def time_stamp
