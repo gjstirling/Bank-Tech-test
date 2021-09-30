@@ -36,9 +36,9 @@ describe Client do
   # end
   # ###############################################
 
-  # describe '#convert' do
-  #   it 'converts numbers into correct format for printing to console' do
-  #     expect(client.convert(10.9)).to eq('10.90')
-  #   end
-  # end
+  describe '#convert' do
+    it 'converts numbers into correct format for printing to console' do
+      expect(client.convert(10.9)).to eq('10.90')
+    end
+  end
 end
