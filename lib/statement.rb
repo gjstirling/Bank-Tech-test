@@ -1,22 +1,23 @@
-class Statement
+# frozen_string_literal: true
 
-  def self.print(transactions)
-    p ("#{'date'.center(10)}||#{'credit'.center(10)}||#{'debit'.center(10)}||#{'balance'.center(10)}")
-    transactions.reverse.each do |transaction| 
-      p "#{transaction[:date]}".center(10) + "||" + "#{format(transaction[:credit])}".center(10) + "||" + "#{format(transaction[:debit])}".center(10) + "||" + "#{format(transaction[:balance])}".center(10) 
-    end 
-  end 
+class Statement
+  def self.print(data)
+    p("#{'date'.center(10)}||#{'credit'.center(10)}||#{'debit'.center(10)}||#{'balance'.center(10)}")
+    data.reverse.each do |t|
+      p "#{(t[:date]).to_s.center(10)}||#{format(t[:credit]).to_s.center(10)}||#{format(t[:debit]).to_s.center(10)}||#{format(t[:balance]).to_s.center(10)}"
+    end
+  end
 
   def self.format(number)
-    return "0.00" if number == 0
-    return number.round(2).to_s + "0" if add_zero?(number)
-    return number.round(2).to_s
-  end 
+    return '0.00' if number.zero?
+    return "#{number.round(2)}0" if add_zero?(number)
 
-end 
+    number.round(2).to_s
+  end
+end
 
-private 
+private
 
-def add_zero?(number) 
-  number.round(2).to_s.split(".").last.length < 2
-end 
+def add_zero?(number)
+  number.round(2).to_s.split('.').last.length < 2
+end

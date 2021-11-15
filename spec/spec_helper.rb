@@ -1,10 +1,9 @@
-# Required files 
+# frozen_string_literal: true
+
+# Required files
 require 'account'
 require 'statement'
 require 'timecop'
-
-
-
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
