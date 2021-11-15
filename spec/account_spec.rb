@@ -5,9 +5,13 @@ describe Account do
 
   describe '#deposit' do 
 
+
+
     it 'can return a transaction' do 
-      expect(subject.deposit(10.00)).to eq ({credit: "0", debit: "10.00", balance: "10.00"})
+    
+      expect(subject.deposit(10.00)).to be_an_instance_of(Transaction)
     end 
+
   end 
 
 end 

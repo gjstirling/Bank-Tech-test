@@ -5,7 +5,7 @@ class Account
   end 
 
   def deposit(credit)
-    {credit: "0", debit: "10.00", balance: "10.00"}
+    Transaction.new
   end 
 
 end 
