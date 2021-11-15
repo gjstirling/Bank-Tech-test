@@ -10,6 +10,14 @@ describe Account do
       expect(subject.deposit(15.51)).to eq(25.51)
     end 
 
+    it 'raises an error if non numeric input is given' do 
+      expect {subject.deposit("money")}.to raise_error "Typing error"
+    end
+
+    it 'raises an error if credit is less than the minumum value' do 
+      expect {subject.deposit(0.009)}.to raise_error "Cannot withdraw/deposit less than the minumum"
+    end 
+    
   end 
 
   describe '#withdraw' do 
@@ -23,6 +31,7 @@ describe Account do
     it 'raises error when balance is too low' do 
       expect {subject.withdraw(5.0)}.to raise_error "Insufficient funds"
     end 
+
   end 
 
 end 
