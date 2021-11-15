@@ -5,11 +5,8 @@ describe Account do
 
   describe '#deposit' do 
 
-
-
     it 'can return a transaction' do 
     
-      expect(subject.deposit(10.00)).to be_an_instance_of(Transaction)
     end 
 
   end 

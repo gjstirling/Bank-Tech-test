@@ -1,6 +1,6 @@
 # Required files 
 require 'account'
-require 'transaction'
+
 
 
 

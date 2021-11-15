@@ -1,11 +1,11 @@
 class Account
   
-  def initialize
-
+  def initialize(balance = 0)
+    @balance = balance
   end 
 
   def deposit(credit)
-    Transaction.new
+    
   end 
 
 end 
