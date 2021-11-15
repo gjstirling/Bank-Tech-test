@@ -32,6 +32,6 @@ describe Account do
       expect {subject.withdraw(5.0)}.to raise_error "Insufficient funds"
     end 
 
-  end 
+  end
 
 end 

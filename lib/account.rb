@@ -18,6 +18,10 @@ class Account
     @transactions << {debit: credit, credit: 0, balance: @balance.round(2)} 
   end 
 
+  def statement
+    Statement.print(@transactions)
+  end
+
 end 
 
 private 
