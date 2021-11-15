@@ -10,6 +10,7 @@ class Account
   end
   
   def withdraw(credit)
+    raise "Insufficient funds" unless @balance > credit
     @balance -= credit 
     @balance.round(2)
   end 

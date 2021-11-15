@@ -18,6 +18,10 @@ describe Account do
 
     it 'can withdraw credit' do
       expect(account_w_credit.withdraw(5.0)).to eq(10.0)   
+    end
+    
+    it 'raises error when balance is too low' do 
+      expect {subject.withdraw(5.0)}.to raise_error "Insufficient funds"
     end 
   end 
 
