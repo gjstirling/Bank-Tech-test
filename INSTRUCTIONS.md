@@ -35,3 +35,9 @@ date || credit || debit || balance
 ## Self-assessment
 
 Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit
+
+
+
+"\"   date   ||  credit  ||  debit   || balance  \"\n\" 15-11-21 ||   6.57   ||   0.00   ||  16.57   ...-11-21 ||   0.00   ||  10.00   ||  10.00   \"\n\" 15-11-21 ||  20.00   ||   0.00   ||  20.00   \"\n"
+
+"\"   date   ||  credit  ||  debit   || balance  \"\n\" 15-11-21 ||   6.57   ||  10.00   ||  16.57   ...1-21 ||   0.00   ||  10.00   ||  10.00   \"\n\" 15-11-21 ||  20.00   ||   0.00   ||  20.00   \"\n\n"
