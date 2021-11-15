@@ -1,27 +1,7 @@
 # Installation instructions 
 
-(1) Clone this repo 
-
-(2) Open folder inside the terminal 
-
-(3) run 'bundle install' to install dependencies
-
 
 # Usage instructions 
-
-enter 'rspec' into terminal to confirm tests are funcitoning as expected 
-
-open a REPL by entering 'irb' into the terminal 
-
-create a client account 'client = Client.new'
-
-Deposit credit 'client.deposit(1000.00)'
-
-Deposit credit 'client.deposit(2000.00)'
-
-withdraw credit 'client.withdraw(1000.00)'
-
-display bank statement 'client.print_statement' 
 
 
 # Bank tech test User Stories 
