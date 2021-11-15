@@ -6,8 +6,8 @@ describe Account do
   describe '#deposit' do 
 
     it 'can deposit credit' do
-      expect(subject.deposit(10.0)).to eq({debit: 0, credit: 10.0, balance: 10.0})
-      expect(subject.deposit(15.51)).to eq({debit: 0, credit: 15.51, balance: 25.51})
+      expect(subject.deposit(10.0)).to eq([{debit: 0, credit: 10.0, balance: 10.0}])
+      expect(subject.deposit(15.51)).to eq([{debit: 0, credit: 10.0, balance: 10.0}, {debit: 0, credit: 15.51, balance: 25.51}])
     end 
 
     it 'raises an error if non numeric input is given' do 
@@ -25,7 +25,7 @@ describe Account do
     let(:account_w_credit) {Account.new(15.0)}
 
     it 'can withdraw credit' do
-      expect(account_w_credit.withdraw(5.0)).to eq({debit: 5.0, credit: 0, balance: 10.0})   
+      expect(account_w_credit.withdraw(5.0)).to eq([{debit: 5.0, credit: 0, balance: 10.0}])   
     end
     
     it 'raises error when balance is too low' do 

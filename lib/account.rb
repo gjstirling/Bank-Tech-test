@@ -8,14 +8,14 @@ class Account
   def deposit(credit)
     verify_input(credit)
     @balance += credit
-    {debit: 0, credit: credit, balance: @balance.round(2)} 
+    @transactions << {debit: 0, credit: credit, balance: @balance.round(2)} 
   end
   
   def withdraw(credit)
     verify_input(credit)
     raise "Insufficient funds" unless @balance > credit
     @balance -= credit 
-    {debit: credit, credit: 0, balance: @balance.round(2)} 
+    @transactions << {debit: credit, credit: 0, balance: @balance.round(2)} 
   end 
 
 end 
