@@ -1,3 +1,5 @@
+require_relative 'statement'
+
 class Account
 
   def initialize(balance = 0, transactions = [])
@@ -27,7 +29,7 @@ end
 private 
 
 MINIMUM = 0.01
-DATE_FORMAT = '%y-%m-%d'
+DATE_FORMAT = '%d-%m-%y'
 
 def verify_input(value)
   raise 'Typing error' unless value.is_a? Numeric

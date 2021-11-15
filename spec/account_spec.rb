@@ -1,6 +1,6 @@
 describe Account do 
   
-    TODAY = Time.now.strftime('%y-%m-%d')
+    TODAY = Time.now.strftime('%d-%m-%y')
   
     it 'creates a new account' do 
       expect(subject).to be_an_instance_of(Account)
@@ -10,7 +10,7 @@ describe Account do
 
       it 'can deposit credit' do
         expect(subject.deposit(10.0)).to eq([{date: TODAY, debit: 0, credit: 10.0, balance: 10.0}])
-        expect(subject.deposit(15.51)).to eq([{date: TODAY, debit: 0, credit: 10.0, balance: 10.0}, {date: "21-11-15", debit: 0, credit: 15.51, balance: 25.51}])
+        expect(subject.deposit(15.51)).to eq([{date: TODAY, debit: 0, credit: 10.0, balance: 10.0}, {date: TODAY, debit: 0, credit: 15.51, balance: 25.51}])
       end 
 
       it 'raises an error if non numeric input is given' do 
