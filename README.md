@@ -27,9 +27,9 @@ Clone this repo:
 
 Install gems by running: 
 
-```bundle```
+```bundle install```
 
-Check tests by entering 
+Check tests/coverage by entering 
 ```rspec```
 
 # Usage instructions 
