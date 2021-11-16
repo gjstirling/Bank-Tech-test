@@ -34,6 +34,12 @@ Check tests/coverage by entering
 
 # Usage instructions 
 
+First activate a REPL by entering the following into the command line inside the project directory: 
+```irb```
+
+Import the account class: 
+```require './lib/account.rb'```
+
 User can create a new bank account:
 ``` my_account = Account.new ```
 
