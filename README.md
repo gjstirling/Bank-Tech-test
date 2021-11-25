@@ -55,4 +55,17 @@ print statement:
 A full tech task breakdown can be found at INSTRUCTIONS.md
 
 
+### Feedback to apply 
+
+Remove centering as it isn't asked for in acceptance criteria 
+Create test and error for number entered which isn't in pounds and pence aka deposit(15.456)
+Use Timecop.freeze to stablize tests use different set dates
+shorten lines that are too long 
+Stop using floats as they can be unreliable unlike ints 
+
+
+
+
+
+
 
