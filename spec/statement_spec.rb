@@ -3,10 +3,10 @@
 describe Statement do
 
   describe '#print' do
-    let(:transaction) { [{ date: "10/11/2021", debit: 0, credit: 10.0, balance: 10.0 }] }
+    let(:transaction) { [{ date: "10/11/2021", debit: 0, credit: 10.0, balance: 1000 }] }
     let(:sample_transactions) do
-      [{ date: "10/11/2021", debit: 0, credit: 20.0, balance: 20.0 }, { date: "12/11/2021", debit: 10.00, credit: 0, balance: 10.0 },
-       { date: "13/11/2021", debit: 0, credit: 6.57, balance: 16.57 }]
+      [{ date: "10/11/2021", debit: 0, credit: 20.0, balance: 2000 }, { date: "12/11/2021", debit: 10.00, credit: 0, balance: 1000 },
+       { date: "13/11/2021", debit: 0, credit: 6.57, balance: 1657 }]
     end
 
     it 'prints statement header' do
@@ -40,4 +40,10 @@ describe Statement do
       expect(Statement.format(10.56)).to eq ' 10.56 '
     end
   end
+
+  describe '#format_balance' do 
+    it 'converts balance into a float' do 
+      expect(Statement.format_balance(1000)).to eq " 10.00 "
+    end 
+  end 
 end

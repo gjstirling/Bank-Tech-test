@@ -10,19 +10,19 @@ class Account
 
   def deposit(credit)
     verify_input(credit)
-    @balance += credit
+    @balance += credit*100
     @transactions << { 
-      date: today, debit: 0, credit: credit, balance: @balance.round(2) 
+      date: today, debit: 0, credit: credit, balance: @balance.to_i 
     }
   end
 
   def withdraw(credit)
     verify_input(credit)
-    raise 'Insufficient funds' unless @balance > credit
+    raise 'Insufficient funds' unless @balance > credit*100
 
-    @balance -= credit
+    @balance -= credit*100
     @transactions << { 
-      date: today, debit: credit, credit: 0, balance: @balance.round(2) 
+      date: today, debit: credit, credit: 0, balance: @balance.to_i 
     }
   end
 

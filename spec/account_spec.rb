@@ -9,11 +9,11 @@ describe Account do
   describe '#deposit' do
 
     let(:deposit1) { 
-      {date: "10/11/2021", debit: 0, credit: 10.0, balance: 10.0} 
+      {date: "10/11/2021", debit: 0, credit: 10.0, balance: 1000} 
     }
     let(:deposit2) { 
-      [{ date: "10/11/2021", debit: 0, credit: 10.0, balance: 10.0 },
-      { date: "10/11/2021", debit: 0, credit: 15.51, balance: 25.51 }
+      [{ date: "10/11/2021", debit: 0, credit: 10.0, balance: 1000 },
+      { date: "10/11/2021", debit: 0, credit: 15.51, balance: 2551 }
     ]}
 
     it 'can deposit credit' do
@@ -37,11 +37,11 @@ describe Account do
   end
 
   describe '#withdraw' do
-    let(:account_w_credit) { Account.new(15.0) }
+    let(:account_w_credit) { Account.new(1500) }
 
     it 'can withdraw credit' do
       Timecop.freeze(Time.parse('14/01/2012')) do
-        transaction = { date: "14/01/2012", debit: 5.0, credit: 0, balance: 10.0 }
+        transaction = { date: "14/01/2012", debit: 5.0, credit: 0, balance: 1000 }
         expect(account_w_credit.withdraw(5.0)).to eq([transaction])
       end
     end
