@@ -5,7 +5,6 @@ require 'account'
 require 'statement'
 require 'timecop'
 require 'simplecov'
-require 'timecop'
 SimpleCov.start
 
 RSpec.configure do |config|

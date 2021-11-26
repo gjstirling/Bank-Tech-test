@@ -1,39 +1,30 @@
 # frozen_string_literal: true
 
 describe Account do
-
-  it 'creates a new account' do
-    expect(subject).to be_an_instance_of(Account)
-  end
-
   describe '#deposit' do
-
-    let(:deposit1) { 
-      {date: "10/11/2021", debit: 0, credit: 10.0, balance: 1000} 
-    }
-    let(:deposit2) { 
-      [{ date: "10/11/2021", debit: 0, credit: 10.0, balance: 1000 },
-      { date: "10/11/2021", debit: 0, credit: 15.51, balance: 2551 }
-    ]}
+    let(:deposit1) do
+      [{ date: '10/11/2021', debit: 0, credit: 10.0, balance: 1000 }]
+    end
+    let(:deposit2) do
+      [{ date: '10/11/2021', debit: 0, credit: 10.0, balance: 1000 },
+       { date: '10/11/2021', debit: 0, credit: 15.51, balance: 2551 }]
+    end
 
     it 'can deposit credit' do
-      Timecop.freeze(Time.parse('10/11/2021')) do 
-        expect(subject.deposit(10.0)).to eq([deposit1])
+      Timecop.freeze(Time.parse('10/11/2021')) do
+        expect(subject.deposit(10.0)).to eq(deposit1)
         expect(subject.deposit(15.51)).to eq(deposit2)
-      end     
+      end
     end
 
     it 'raises an error if non numeric input is given' do
       expect { subject.deposit('money') }.to raise_error 'Typing error'
     end
 
-    it 'raises an error if credit is less than the minumum value' do
+    it 'raises an error if the credit is not in pounds/pence or less than the minumum value' do
+      expect { subject.deposit(13.456) }.to raise_error 'Deposit must be in pounds & pence'
       expect { subject.deposit(0.009) }.to raise_error "Transaction must be greater than #{MINIMUM}"
     end
-
-    it 'raises an error if the credit is not in pounds/pence' do 
-      expect { subject.deposit(13.456) }.to raise_error "Deposit must be in pounds & pence"
-    end 
   end
 
   describe '#withdraw' do
@@ -41,7 +32,7 @@ describe Account do
 
     it 'can withdraw credit' do
       Timecop.freeze(Time.parse('14/01/2012')) do
-        transaction = { date: "14/01/2012", debit: 5.0, credit: 0, balance: 1000 }
+        transaction = { date: '14/01/2012', debit: 5.0, credit: 0, balance: 1000 }
         expect(account_w_credit.withdraw(5.0)).to eq([transaction])
       end
     end

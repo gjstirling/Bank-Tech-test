@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
+# top-level documentation comment
 class Statement
   def self.print(data)
-    p "date || credit || debit || balance"
+    p 'date || credit || debit || balance'
     data.reverse.each do |t|
-      p "#{(t[:date])} ||#{format(t[:credit])}||#{format(t[:debit])}||#{format_balance(t[:balance])}"
+      p "#{t[:date]} ||#{format(t[:credit])}||#{format(t[:debit])}||#{format_balance(t[:balance])}"
     end
   end
 
@@ -12,14 +13,14 @@ class Statement
     return ' ' if number.zero?
     return " #{number.round(2)}0 " if add_zero?(number)
 
-    " #{number.round(2).to_s} "
+    " #{number.round(2)} "
   end
 
   def self.format_balance(balance)
-    balance = balance.to_s.split("")
+    balance = balance.to_s.split('')
     length = balance.length
-    " #{balance.take(length-2).join}.#{balance.drop(length - 2).join} "
-  end 
+    " #{balance.take(length - 2).join}.#{balance.drop(length - 2).join} "
+  end
 end
 
 private
