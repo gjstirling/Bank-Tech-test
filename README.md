@@ -54,11 +54,10 @@ print statement:
 
 A full tech task breakdown can be found at INSTRUCTIONS.md
 
+### Feature test
 
-### Feedback to apply 
-
-Show two feature tests for user (Spec transactions)/some transactions on the same day 
-
+To run the feature test enter the below command while in the root directory 
+```ruby './feature_test.rb'```
 
 
 
