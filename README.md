@@ -57,8 +57,6 @@ A full tech task breakdown can be found at INSTRUCTIONS.md
 
 ### Feedback to apply 
 
-Create test and error for number entered which isn't in pounds and pence aka deposit(15.456) <br> 
-Stop using floats as they can be unreliable unlike ints <br> 
 Show two feature tests for user (Spec transactions)/some transactions on the same day 
 
 
