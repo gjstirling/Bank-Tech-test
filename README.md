@@ -45,6 +45,16 @@ A full tech task breakdown can be found at INSTRUCTIONS.md
 To run the feature test enter the below command while in the root directory 
 ```ruby './feature_test.rb'```
 
+## testing/linting
+
+To run the unit tests 
+```rspec```
+
+To check linting 
+```rubocop```
+
+
+
 
 
 
