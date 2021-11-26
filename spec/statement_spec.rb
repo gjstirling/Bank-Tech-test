@@ -44,6 +44,8 @@ describe Statement do
   describe '#format_balance' do 
     it 'converts balance into a float' do 
       expect(Statement.format_balance(1000)).to eq " 10.00 "
+      expect(Statement.format_balance(100000)).to eq " 1000.00 "
+
     end 
   end 
 end

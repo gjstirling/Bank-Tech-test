@@ -16,8 +16,9 @@ class Statement
   end
 
   def self.format_balance(balance)
-    array = balance.to_s.split("")
-    " #{array.take(array.length-2).join}.#{array.drop(2).join} "
+    balance = balance.to_s.split("")
+    length = balance.length
+    " #{balance.take(length-2).join}.#{balance.drop(length - 2).join} "
   end 
 end
 
