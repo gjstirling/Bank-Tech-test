@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Statement do
-  let(:today) { Time.now.strftime('%d-%m-%y') }
+  let(:date) { Time.freeze.strftime('%d-%m-%y') }
 
   describe '#print' do
     let(:transaction) { [{ date: today, debit: 0, credit: 10.0, balance: 10.0 }] }

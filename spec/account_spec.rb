@@ -9,9 +9,11 @@ describe Account do
 
   describe '#deposit' do
     it 'can deposit credit' do
-      expect(subject.deposit(10.0)).to eq([{ date: today, debit: 0, credit: 10.0, balance: 10.0 }])
-      expect(subject.deposit(15.51)).to eq([{ date: today, debit: 0, credit: 10.0, balance: 10.0 },
-                                            { date: today, debit: 0, credit: 15.51, balance: 25.51 }])
+      Timecop.freeze(Time.parse('10/11/2021')) do 
+        expect(subject.deposit(10.0)).to eq([{ date: "10-11-21", debit: 0, credit: 10.0, balance: 10.0 }])
+        expect(subject.deposit(15.51)).to eq([{ date: "10-11-21", debit: 0, credit: 10.0, balance: 10.0 },
+                                              { date: "10-11-21", debit: 0, credit: 15.51, balance: 25.51 }])
+      end     
     end
 
     it 'raises an error if non numeric input is given' do
