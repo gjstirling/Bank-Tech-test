@@ -30,7 +30,7 @@ end
 private
 
 MINIMUM = 0.01
-DATE_FORMAT = '%d-%m-%y'
+DATE_FORMAT = '%d/%m/%Y'
 
 def verify_input(value)
   raise 'Typing error' unless value.is_a? Numeric
