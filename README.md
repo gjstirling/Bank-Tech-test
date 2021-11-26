@@ -44,13 +44,13 @@ User can create a new bank account:
 ``` my_account = Account.new ```
 
 User can deposit:
-``` my_account.deposit(10.0) ```
+```my_account.deposit(10.0)```
 
 Withdraw: 
-``` my_account.withdraw(5.0) ``` 
+```my_account.withdraw(5.0)``` 
 
 print statement:
-``` my_account.statement ``` 
+```my_account.statement``` 
 
 A full tech task breakdown can be found at INSTRUCTIONS.md
 
@@ -58,8 +58,8 @@ A full tech task breakdown can be found at INSTRUCTIONS.md
 ### Feedback to apply 
 
 Create test and error for number entered which isn't in pounds and pence aka deposit(15.456) <br> 
-shorten lines that are too long <br> 
 Stop using floats as they can be unreliable unlike ints <br> 
+Show two feature tests for user (Spec transactions)/some transactions on the same day 
 
 
 

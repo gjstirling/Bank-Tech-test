@@ -39,7 +39,12 @@ DATE_FORMAT = '%d/%m/%Y'
 def verify_input(value)
   raise 'Typing error' unless value.is_a? Numeric
   raise "Transaction must be greater than #{MINIMUM}" if value < MINIMUM
+  raise "Deposit must be in pounds & pence" unless pounds?(value)
 end
+
+def pounds?(value)
+  value.to_s.split('.').last.size <= 2
+end 
 
 def today
   Time.now.strftime(DATE_FORMAT)

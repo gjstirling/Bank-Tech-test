@@ -30,6 +30,10 @@ describe Account do
     it 'raises an error if credit is less than the minumum value' do
       expect { subject.deposit(0.009) }.to raise_error "Transaction must be greater than #{MINIMUM}"
     end
+
+    it 'raises an error if the credit is not in pounds/pence' do 
+      expect { subject.deposit(13.456) }.to raise_error "Deposit must be in pounds & pence"
+    end 
   end
 
   describe '#withdraw' do
