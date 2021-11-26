@@ -11,7 +11,9 @@ class Account
   def deposit(credit)
     verify_input(credit)
     @balance += credit
-    @transactions << { date: today, debit: 0, credit: credit, balance: @balance.round(2) }
+    @transactions << { 
+      date: today, debit: 0, credit: credit, balance: @balance.round(2) 
+    }
   end
 
   def withdraw(credit)
@@ -19,7 +21,9 @@ class Account
     raise 'Insufficient funds' unless @balance > credit
 
     @balance -= credit
-    @transactions << { date: today, debit: credit, credit: 0, balance: @balance.round(2) }
+    @transactions << { 
+      date: today, debit: credit, credit: 0, balance: @balance.round(2) 
+    }
   end
 
   def statement
@@ -34,7 +38,7 @@ DATE_FORMAT = '%d/%m/%Y'
 
 def verify_input(value)
   raise 'Typing error' unless value.is_a? Numeric
-  raise 'Cannot withdraw/deposit less than the minumum' if value < MINIMUM
+  raise "Transaction must be greater than #{MINIMUM}" if value < MINIMUM
 end
 
 def today

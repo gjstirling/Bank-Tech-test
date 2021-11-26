@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-11-26T16:30:22+00:00">2021-11-26T16:30:22+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-11-26T16:42:58+00:00">2021-11-26T16:42:58+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.22
+         1.2
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>36</b> relevant lines,
-    <span class="green"><b>36</b> lines covered</span> and
+    <b>41</b> relevant lines,
+    <span class="green"><b>41</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -73,11 +73,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#ce2afea8e1988cfbe672316f8cdaac01732b057b" class="src_link" title="spec/account_spec.rb">spec/account_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">40</td>
-            <td class="cell--number">19</td>
-            <td class="cell--number">19</td>
+            <td class="cell--number">49</td>
+            <td class="cell--number">24</td>
+            <td class="cell--number">24</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.21</td>
+            <td class="cell--number">1.17</td>
             
           </tr>
         
@@ -123,8 +123,8 @@
     
 
     <div class="t-line-summary">
-      <b>19</b> relevant lines.
-      <span class="green"><b>19</b> lines covered</span> and
+      <b>24</b> relevant lines.
+      <span class="green"><b>24</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -235,13 +235,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="10">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="10">
+            
             
 
             
 
-            <code class="ruby">    it &#39;can deposit credit&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -252,7 +252,7 @@
 
             
 
-            <code class="ruby">      Timecop.freeze(Time.parse(&#39;10/11/2021&#39;)) do </code>
+            <code class="ruby">    let(:deposit1) { </code>
           </li>
         </div>
       
@@ -263,40 +263,40 @@
 
             
 
-            <code class="ruby">        expect(subject.deposit(10.0)).to eq([{ date: &quot;10/11/2021&quot;, debit: 0, credit: 10.0, balance: 10.0 }])</code>
+            <code class="ruby">      {date: &quot;10/11/2021&quot;, debit: 0, credit: 10.0, balance: 10.0} </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="13">
+          <li class="never" data-hits="" data-linenumber="13">
+            
+            
+
+            
+
+            <code class="ruby">    }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="14">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">        expect(subject.deposit(15.51)).to eq([{ date: &quot;10/11/2021&quot;, debit: 0, credit: 10.0, balance: 10.0 },</code>
+            <code class="ruby">    let(:deposit2) { </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="14">
-            
-            
-
-            
-
-            <code class="ruby">                                              { date: &quot;10/11/2021&quot;, debit: 0, credit: 15.51, balance: 25.51 }])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="15">
-            
+          <li class="covered" data-hits="1" data-linenumber="15">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      end     </code>
+            <code class="ruby">      [{ date: &quot;10/11/2021&quot;, debit: 0, credit: 10.0, balance: 10.0 },</code>
           </li>
         </div>
       
@@ -307,7 +307,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      { date: &quot;10/11/2021&quot;, debit: 0, credit: 15.51, balance: 25.51 }</code>
           </li>
         </div>
       
@@ -318,51 +318,51 @@
 
             
 
+            <code class="ruby">    ]}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="18">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="18">
+          <li class="covered" data-hits="1" data-linenumber="19">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    it &#39;raises an error if non numeric input is given&#39; do</code>
+            <code class="ruby">    it &#39;can deposit credit&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="19">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="20">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      expect { subject.deposit(&#39;money&#39;) }.to raise_error &#39;Typing error&#39;</code>
+            <code class="ruby">      Timecop.freeze(Time.parse(&#39;10/11/2021&#39;)) do </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="20">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="21">
-            
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        expect(subject.deposit(10.0)).to eq([deposit1])</code>
           </li>
         </div>
       
@@ -373,18 +373,18 @@
 
             
 
-            <code class="ruby">    it &#39;raises an error if credit is less than the minumum value&#39; do</code>
+            <code class="ruby">        expect(subject.deposit(15.51)).to eq(deposit2)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="23">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="23">
+            
             
 
             
 
-            <code class="ruby">      expect { subject.deposit(0.009) }.to raise_error &#39;Cannot withdraw/deposit less than the minumum&#39;</code>
+            <code class="ruby">      end     </code>
           </li>
         </div>
       
@@ -406,40 +406,40 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="27">
+          <li class="covered" data-hits="1" data-linenumber="26">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  describe &#39;#withdraw&#39; do</code>
+            <code class="ruby">    it &#39;raises an error if non numeric input is given&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="28">
+          <li class="covered" data-hits="2" data-linenumber="27">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    let(:account_w_credit) { Account.new(15.0) }</code>
+            <code class="ruby">      expect { subject.deposit(&#39;money&#39;) }.to raise_error &#39;Typing error&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -461,29 +461,29 @@
 
             
 
-            <code class="ruby">    it &#39;can withdraw credit&#39; do</code>
+            <code class="ruby">    it &#39;raises an error if credit is less than the minumum value&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="31">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="31">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      Timecop.freeze(Time.parse(&#39;14/01/2012&#39;)) do</code>
+            <code class="ruby">      expect { subject.deposit(0.009) }.to raise_error &quot;Transaction must be greater than #{MINIMUM}&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="32">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="32">
+            
             
 
             
 
-            <code class="ruby">        expect(account_w_credit.withdraw(5.0)).to eq([{ date: &quot;14/01/2012&quot;, debit: 5.0, credit: 0, balance: 10.0 }])</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -494,7 +494,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -505,12 +505,34 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="35">
+          <li class="covered" data-hits="1" data-linenumber="35">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  describe &#39;#withdraw&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="36">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    let(:account_w_credit) { Account.new(15.0) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="37">
             
             
 
@@ -521,29 +543,62 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="36">
+          <li class="covered" data-hits="1" data-linenumber="38">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    it &#39;raises error when balance is too low&#39; do</code>
+            <code class="ruby">    it &#39;can withdraw credit&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="37">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      expect { subject.withdraw(5.0) }.to raise_error &#39;Insufficient funds&#39;</code>
+            <code class="ruby">      Timecop.freeze(Time.parse(&#39;14/01/2012&#39;)) do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="covered" data-hits="1" data-linenumber="40">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        transaction = { date: &quot;14/01/2012&quot;, debit: 5.0, credit: 0, balance: 10.0 }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="41">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(account_w_credit.withdraw(5.0)).to eq([transaction])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="42">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="43">
             
             
 
@@ -554,7 +609,51 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="39">
+          <li class="never" data-hits="" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    it &#39;raises error when balance is too low&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="46">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      expect { subject.withdraw(5.0) }.to raise_error &#39;Insufficient funds&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="47">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="48">
             
             
 
@@ -565,7 +664,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="40">
+          <li class="never" data-hits="" data-linenumber="49">
             
             
 
