@@ -4,7 +4,7 @@ This tech task allows a user to create a bank accounts and make actions on those
 
 ## Domain model 
 
-add domain model here
+<img alt="Domain Model" src="images/domain_model.png" width="400">
 
 ## Installation instructions 
 
