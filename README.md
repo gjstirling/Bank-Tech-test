@@ -1,8 +1,12 @@
 # Description
 
-This tech task is a command line program that allows the user to create a bank account. The user can create an account, withdraw, deposit and check statements showing their transaction history. 
+This tech task allows a user to create a bank accounts and make actions on those accounts. Such as withdrawels, deposits and seeing transcations by printing statements.
 
-# Installation instructions 
+## Domain model 
+
+add domain model here
+
+## Installation instructions 
 
 To use this program you will need a version of Ruby installed
 
@@ -14,10 +18,7 @@ Install gems by running:
 
 ```bundle install```
 
-Check tests/coverage by entering 
-```rspec```
-
-# Usage instructions 
+## Usage instructions 
 
 First activate a REPL by entering the following into the command line inside the project directory: 
 ```irb```
