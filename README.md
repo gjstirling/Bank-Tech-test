@@ -1,7 +1,6 @@
 # Description
 
-This is a tech task to create a command line program that works to the following specification: 
-Requirements can be viewed in INSTRUCTIONS.md
+This tech task is a command line program that allows the user to create a bank account. The user can create an account, withdraw, deposit and check statements showing their transaction history. 
 
 # Installation instructions 
 
