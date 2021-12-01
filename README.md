@@ -7,7 +7,7 @@ This tech task allows a user to create a bank accounts and make actions on those
 <img alt="Domain Model" src="images/domain_model.png" width="400">
 
 ## Technologies used 
-Ruby 
+Ruby (model) <br>
 RSpec (testing) 
 
 ## Installation instructions 
