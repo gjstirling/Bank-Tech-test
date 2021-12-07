@@ -1,6 +1,6 @@
 # Description
 
-This tech task allows a user to create a bank accounts and make actions on those accounts. Such as withdrawels, deposits and seeing transactions by printing statements.
+This tech task allows a user to create a bank accounts and make actions on those accounts. Such as withdrawals, deposits and printing transaction statements.
 
 ## Domain model 
 
