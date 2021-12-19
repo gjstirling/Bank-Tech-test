@@ -10,7 +10,7 @@ class Account
 
   def deposit(credit)
     verify_input(credit)
-    @balance += credit * 100
+    @balance += (credit * 100).round
     @transactions << {
       date: today, debit: 0, credit: credit, balance: @balance.to_i
     }
@@ -20,7 +20,7 @@ class Account
     verify_input(credit)
     raise 'Insufficient funds' unless @balance > credit * 100
 
-    @balance -= credit * 100
+    @balance -= (credit * 100).round
     @transactions << {
       date: today, debit: credit, credit: 0, balance: @balance.to_i
     }
@@ -37,7 +37,7 @@ MINIMUM = 0.01
 DATE_FORMAT = '%d/%m/%Y'
 
 def verify_input(value)
-  raise 'Typing error' unless value.is_a? Numeric
+  raise 'Typing error' unless value.is_a? Float
   raise "Transaction must be greater than #{MINIMUM}" if value < MINIMUM
   raise 'Deposit must be in pounds & pence' unless pounds?(value)
 end
