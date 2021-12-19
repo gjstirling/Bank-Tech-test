@@ -52,7 +52,7 @@ As a user
 So that I can monitor my transactions  
 I'd like to be able to print a dated bank statement.
 
-<img alt="command_line_example" src="public/images/example.png" width="700"
+<img alt="IRB Exmaple" src="images/example.png" width="800">
 
 ### Technologies used 
 Ruby (model) <br>
